@@ -20,7 +20,7 @@
 .AUTHOR
     Joey Verlinden / Bastiaan Schumans
 #>
-
+#
 Invoke-Webrequest -Uri "https://raw.githubusercontent.com/marcelbraak/public/refs/heads/main/intuneenroll3.ps1" -UseBasicParsing -OutFile "C:\Windows\Temp\IntuneEnroll3.ps1"
 
 
