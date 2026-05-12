@@ -16,6 +16,7 @@ while (-not $EntraIDJoined) {
 
         if ($eventlog) {
             Write-Log "Event ID 306 detected in Event Viewer. Entra ID Enrollment successful."
+            $EntraIDJoined = $true
 
             Write-Log "Addidng registry keys for MDM enrollment... and starting auto enrollment task scheduler task"
 
