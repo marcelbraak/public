@@ -33,6 +33,8 @@ while (-not $EntraIDJoined) {
 
             New-ItemProperty -LiteralPath $path -Name 'MdmComplianceUrl' -Value 'https://portal.manage.microsoft.com/?portalAction=Compliance' -PropertyType String -Force -ea SilentlyContinue;
 
+            Start-Sleep -Seconds 10
+
             # Start auto enroll
             Start-ScheduledTask -TaskName "Schedule created by enrollment client for automatically enrolling in MDM from AAD using device credential" -TaskPath "\Microsoft\Windows\EnterpriseMgmt\" -ErrorAction SilentlyContinue
             #C:\Windows\system32\deviceenroller.exe /c /AutoEnrollMDMUsingAADDeviceCredential
