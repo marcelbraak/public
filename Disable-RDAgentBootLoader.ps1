@@ -1,3 +1,8 @@
+[CmdletBinding()]
+param (
+    [bool]$performHybridIntuneEnrollment = $false        
+)
+
 function Write-Log {
     param (
         [string]$Message
@@ -46,4 +51,10 @@ while ($true) {
 
     # Wait before next check
     Start-Sleep -Seconds $delaySeconds
+}
+
+if ($performHybridIntuneEnrollment) {
+    Write-Log "Performing Hybrid Intune Enrollment after stopping RDAgentBootLoader service..."
+    # Call the Enroll-IntuneMDM.ps1 script to perform Hybrid Intune Enrollment
+    .\Enroll-IntuneMDM.ps1
 }
