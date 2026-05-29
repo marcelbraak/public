@@ -28,9 +28,12 @@ while ($true) {
         if ($currentValue -eq "False") {
             Write-Log "Value is 'False'. Stopping RDAgentBootLoader service..."
 
-            powershell -ExecutionPolicy Unrestricted -Command "Stop-Service -Name RDAgentBootLoader -Force"
+            #powershell -ExecutionPolicy Unrestricted -Command "Stop-Service -Name RDAgentBootLoader -Force"
+            Stop-Service -Name RDAgentBootLoader -Force
+            Write-Log "RDAgentBootLoader Service stopped."
 
-            Write-Log "Service stop command executed."
+            Set-Service -Name RDAgentBootLoader -StartupType Disabled
+            Write-Log "RDAgentBootLoader Service set to disabled."
             break
         } elseif ($currentValue -eq "True") {
             Write-Log "Value is 'True'. RDAgentBootLoader service still registering with AVD Hoost Pool. Will check again in $delaySeconds seconds."
