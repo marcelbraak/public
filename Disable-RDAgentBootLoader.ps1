@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param (
-    [bool]$performHybridIntuneEnrollment = $false        
+    [switch]$performHybridIntuneEnrollment
 )
 
 function Write-Log {
