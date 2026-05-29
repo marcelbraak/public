@@ -13,7 +13,7 @@ $registryPath = "HKLM:\SOFTWARE\Microsoft\Windows Azure\RDAgentBootloaderHandler
 $valueName    = "isEnabling"
 
 # Delay between checks (in seconds)
-$delaySeconds = 60
+$delaySeconds = 30
 
 Write-Log "Monitoring registry value '$valueName' at '$registryPath'..."
 
@@ -22,7 +22,7 @@ while ($true) {
         # Read the registry value
         $currentValue = Get-ItemProperty -Path $registryPath -Name $valueName -ErrorAction Stop | Select-Object -ExpandProperty $valueName
 
-        Write-Log "Current value: $currentValue"
+        # Write-Log "Current value: $currentValue"
 
         # Check if the value is "False"
         if ($currentValue -eq "False") {
@@ -36,7 +36,7 @@ while ($true) {
             Write-Log "RDAgentBootLoader Service set to disabled."
             break
         } elseif ($currentValue -eq "True") {
-            Write-Log "Value is 'True'. RDAgentBootLoader service still registering with AVD Hoost Pool. Will check again in $delaySeconds seconds."
+            Write-Log "Value is 'True'. RDAgentBootLoader service still registering with AVD Host Pool. Will check again in $delaySeconds seconds."
         } 
     }
     catch {
