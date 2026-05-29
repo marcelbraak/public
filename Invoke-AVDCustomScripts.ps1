@@ -11,7 +11,7 @@ function Write-Log {
     $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
     $logMessage = "$timestamp - $Message"
     Write-Host $logMessage
-    Add-Content -Path "C:\Windows\Temp\Disable-RDAgentBootLoader.log" -Value $logMessage
+    Add-Content -Path "C:\Windows\Temp\Invoke-AVDCustomScripts.log" -Value $logMessage
 }
 
 
