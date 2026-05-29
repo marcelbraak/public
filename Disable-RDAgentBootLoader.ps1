@@ -9,7 +9,7 @@ function Write-Log {
 }
 
 # Registry path and value name
-$registryPath = "HKLM:\SOFTWARE\Microsoft\Windows Azure\RDAgentBootloadHandler"
+$registryPath = "HKLM:\SOFTWARE\Microsoft\Windows Azure\RDAgentBootloaderHandler"
 $valueName    = "isEnabling"
 
 # Delay between checks (in seconds)
