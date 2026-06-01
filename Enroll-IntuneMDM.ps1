@@ -21,7 +21,7 @@ function Write-Log {
     $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
     $logMessage = "$timestamp - $Message"
     Write-Host $logMessage
-    Add-Content -Path "C:\Windows\Temp\MCRL_Enroll-IntuneMDM.log" -Value $logMessage
+    Add-Content -Path "C:\Windows\Temp\Enroll-IntuneMDM.log" -Value $logMessage
 }
 
 function Start-IntuneMDMEnrollment {

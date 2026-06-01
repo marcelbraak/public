@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param (
-    [switch]$performHybridIntuneEnrollment,
-    [switch]$skipDisableRDAgentBootLoader
+    [switch]$performHybridIntuneEnrollment, # Pass this switch if you want to perform Hybrid Intune Enrollment after stopping RDAgentBootLoader service. This will call the Enroll-IntuneMDM.ps1 script.
+    [switch]$skipDisableRDAgentBootLoader   # By default the script will disable RDAgentBootLoader service, but you can choose to skip this step if needed
 )
 
 function Write-Log {
