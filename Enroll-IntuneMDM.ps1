@@ -62,7 +62,9 @@ while (-not $EntraIDJoined) {
             Start-IntuneMDMEnrollment
 
         } else {
-            Write-Log "Event ID 306 not detected yet. Waiting for Entra ID Enrollment to complete... Checking again in 60 seconds."
+            Write-Log "Event ID 306 not detected yet. Waiting for Entra ID Enrollment to complete..."
+            Write-Log "Starting scheduled task (Automatic-Device-Join) to speed up the process... Checking again in 60 seconds."
+            Start-ScheduledTask -TaskName "Automatic-Device-Join" -TaskPath "\Microsoft\Windows\Workplace Join\"
             Start-Sleep -Seconds 60 
         }
 }
